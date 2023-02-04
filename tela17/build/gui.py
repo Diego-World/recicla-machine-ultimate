@@ -24,7 +24,7 @@ window = Tk()
 window.geometry("1366x768")
 window.configure(bg = "#FFFFFF")
 window.title("Recicla Machine")
-img = PhotoImage(file='../../Login/build/assets/frame0/Icone.png')
+img = PhotoImage(file='assets/Icone.png')
 window.tk.call('wm', 'iconphoto', window._w, img)
 
 canvas = Canvas(

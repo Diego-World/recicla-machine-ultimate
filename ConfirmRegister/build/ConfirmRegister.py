@@ -1,18 +1,24 @@
-from tkinter import Tk
+import json
+from pathlib import Path
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,messagebox
+from Constants import DATA_STAGE_FILE,DATA_MASTER_FILE
+from StageHelper import copy_data_stage_to_master
 
 
 class ConfirmRegister:
     def __init__(self,master=None):
-        import json
-        from pathlib import Path
-        from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,messagebox
-
         self.window = master if master else Tk()
         self.window.geometry("1366x768")
         self.window.configure(bg = "#FFFFFF")
         self.window.title("Recicla Machine")
-        img = PhotoImage(file='assets/frame0/Icone.png')
+        img = PhotoImage(file='assets/Icone.png')
         self.window.tk.call('wm', 'iconphoto', self.window._w, img)
+
+        OUTPUT_PATH = Path(__file__).parent
+        ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Apollo\Desktop\UltimateRecicla\ConfirmRegister\build\assets\frame0")
+
+        def relative_to_assets(path: str) -> Path:
+            return ASSETS_PATH / Path(path)
 
         self.canvas = Canvas(
             self.window,
@@ -23,13 +29,6 @@ class ConfirmRegister:
             highlightthickness = 0,
             relief = "ridge"
         )
-
-        OUTPUT_PATH = Path(__file__).parent
-        ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Apollo\Desktop\UltimateRecicla\ConfirmRegister\build\assets\frame0")
-
-
-        def relative_to_assets(path: str) -> Path:
-            return ASSETS_PATH / Path(path)
 
         self.canvas.place(x=0, y=0)
         image_image_1 = PhotoImage(
@@ -62,7 +61,7 @@ class ConfirmRegister:
             image=button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("button_2 clicked"),
+            command=copy_data_stage_to_master,
             relief="flat"
         )
         button_2.place(

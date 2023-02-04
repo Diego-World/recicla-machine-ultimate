@@ -16,7 +16,7 @@ class Email:
         self.window.geometry("1366x768")
         self.window.configure(bg="#FFFFFF")
         self.window.title("Recicla Machine")
-        img = PhotoImage(file='assets/frame0/Icone.png')
+        img = PhotoImage(file='assets/Icone.png')
         self.window.tk.call('wm', 'iconphoto', self.window._w, img)
 
 
@@ -37,16 +37,6 @@ class Email:
         def relative_to_assets(path: str) -> Path:
             return ASSETS_PATH / Path(path)
 
-        def copy_to_master():
-            with open(DATA_STAGE_FILE, "r") as stageData:
-                data = json.load(stageData)
-                print("Carregou da stage "+str(data))
-            with open(DATA_MASTER_FILE, "a") as masterData:
-                masterData.write(str(json.dumps(data))+'\n')
-                print("Escreveu na master " +str(data))
-            with open(DATA_STAGE_FILE, "w") as stageData:
-                stageData.write("")
-
         def on_button_click():
             email = entry_1.get()
             if email == "":
@@ -62,7 +52,6 @@ class Email:
 
                 with open(DATA_STAGE_FILE, "w") as f:
                     f.write(json.dumps(data))
-                copy_to_master()
                 self.window.destroy()
                 confirmRegister = ConfirmRegister.ConfirmRegister()
 

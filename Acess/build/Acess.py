@@ -11,7 +11,7 @@ class Acess:
         self.window.geometry("1366x768")
         self.window.title("Recicla Machine")
         self.window.configure(bg="#FFFFFF")
-        img = PhotoImage(file='assets/frame0/Icone.png')
+        img = PhotoImage(file='assets/Icone.png')
         self.window.tk.call('wm','iconphoto',self.window._w,img)
 
         OUTPUT_PATH = Path(__file__).parent

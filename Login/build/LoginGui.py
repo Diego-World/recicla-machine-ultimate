@@ -37,7 +37,7 @@ window = Tk()
 
 window.geometry("1366x768")
 window.configure(bg = "#FFFFFF")
-img = PhotoImage(file='assets/frame0/icone.png')
+img = PhotoImage(file='assets/Icone.png')
 window.tk.call('wm', 'iconphoto', window._w, img)
 
 canvas = Canvas(

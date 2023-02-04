@@ -38,7 +38,7 @@ class Street:
         self.window.geometry("1366x768")
         self.window.configure(bg = "#FFFFFF")
         self.window.title("Recicla Machine")
-        img = PhotoImage(file='assets/frame0/Icone.png')
+        img = PhotoImage(file='assets/Icone.png')
         self.window.tk.call('wm', 'iconphoto', self.window._w, img)
 
         self.canvas = Canvas(

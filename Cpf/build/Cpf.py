@@ -10,12 +10,13 @@ class Cpf:
         from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox
         from Keyboard import KeyboardOneEntry
         from Cel.build import Cel
+        from Home.build import Home
 
         self.window = master if master else Tk()
         self.window.geometry("1366x768")
         self.window.configure(bg="#FFFFFF")
         self.window.title("Recicla Machine")
-        img = PhotoImage(file='assets/frame0/Icone.png')
+        img = PhotoImage(file='assets/Icone.png')
         self.window.tk.call('wm', 'iconphoto', self.window._w, img)
 
         OUTPUT_PATH = Path(__file__).parent
@@ -26,10 +27,6 @@ class Cpf:
 
         def on_button_click():
             cpf = entry_1.get()
-
-
-
-
             if cpf == "":
                 messagebox.showerror("Erro", "Por favor, preencha o campo.")
             else:
@@ -43,7 +40,6 @@ class Cpf:
                 # data.append(entry)
 
                 data["cpf"]=cpf
-
 
                 with open(DATA_STAGE_FILE, "w") as f:
                     f.write(json.dumps(data))
