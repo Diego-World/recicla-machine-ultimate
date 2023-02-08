@@ -25,7 +25,7 @@ def on_button_click():
         except:
             data = []
 
-        entry = {"username": username, "password": password}
+        entry = {"username": username, "Password": password}
         data.append(entry)
 
         with open("loginData.json", "w") as f:

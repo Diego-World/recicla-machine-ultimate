@@ -109,7 +109,7 @@ def create_keyboard(window,entry_1):
 
     btnLabels = {}
 
-    Y = 425
+    Y = 440
 
     for r in rows:
         X = 4

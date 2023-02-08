@@ -152,4 +152,5 @@ class Username:
 
         KeyboardOneEntry.create_keyboard(self.window,entry_1)
 
+        self.window.resizable(False, False)
         self.window.mainloop()

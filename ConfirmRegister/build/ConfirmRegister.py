@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,messagebox
-from Constants import DATA_STAGE_FILE,DATA_MASTER_FILE
-from StageHelper import copy_data_stage_to_master
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox, END
 
+from Constants import DATA_STAGE_FILE
+from StageHelper import copy_data_stage_to_master
+from Password import Password
 
 class ConfirmRegister:
     def __init__(self,master=None):
@@ -19,6 +20,25 @@ class ConfirmRegister:
 
         def relative_to_assets(path: str) -> Path:
             return ASSETS_PATH / Path(path)
+
+        def on_button_click():
+            self.window.destroy()
+            password = Password.Password()
+
+        def confirm_data():
+            copy_data_stage_to_master()
+            on_button_click()
+
+        def bring_account_information():
+            with open(DATA_STAGE_FILE, "r") as stageData:
+                data = json.load(stageData)
+                print(str(data))
+
+            entry_1.insert(END,data["username"])
+            entry_2.insert(END,data["email"])
+            entry_3.insert(END,data["cpf"])
+            entry_4.insert(END,data["cel"])
+            entry_5.insert(END,data["cep"])
 
         self.canvas = Canvas(
             self.window,
@@ -61,7 +81,7 @@ class ConfirmRegister:
             image=button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=copy_data_stage_to_master,
+            command=confirm_data,
             relief="flat"
         )
         button_2.place(
@@ -163,6 +183,7 @@ class ConfirmRegister:
             bg="#D9D9D9",
             fg="#000716",
             highlightthickness=0,
+            font=("Arial 30")
         )
 
         entry_1.place(
@@ -183,7 +204,8 @@ class ConfirmRegister:
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial 30")
         )
         entry_2.place(
             x=796.0,
@@ -203,7 +225,8 @@ class ConfirmRegister:
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial 30")
         )
         entry_3.place(
             x=796.0,
@@ -223,7 +246,8 @@ class ConfirmRegister:
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial 30")
         )
         entry_4.place(
             x=796.0,
@@ -243,7 +267,8 @@ class ConfirmRegister:
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial 30")
         )
         entry_5.place(
             x=796.0,
@@ -251,5 +276,7 @@ class ConfirmRegister:
             width=503.0,
             height=47.0
         )
+
+        bring_account_information()
         self.window.resizable(False, False)
         self.window.mainloop()

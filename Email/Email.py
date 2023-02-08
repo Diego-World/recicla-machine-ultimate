@@ -1,17 +1,12 @@
-from tkinter import Tk
-
 from Constants import DATA_STAGE_FILE, DATA_MASTER_FILE
-
+import json
+from pathlib import Path
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox
+from Keyboard import KeyboardOneEntry
+from ConfirmRegister.build import ConfirmRegister
 
 class Email:
     def __init__(self,master=None):
-        import json
-        from pathlib import Path
-        from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox
-        from Keyboard import KeyboardOneEntry
-        from ConfirmRegister.build import ConfirmRegister
-
-
         self.window = master if master else Tk()
         self.window.geometry("1366x768")
         self.window.configure(bg="#FFFFFF")

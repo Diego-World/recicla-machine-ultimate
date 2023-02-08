@@ -11,7 +11,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Apollo\Desktop\python-figma\tela19\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Apollo\Desktop\UltimateRecicla\AccountCreated\build\assets\frame0")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -23,6 +23,9 @@ window = Tk()
 window.geometry("1366x768")
 window.configure(bg = "#FFFFFF")
 window.title("Recicla Machine")
+#img = PhotoImage(file='assets/Icone.png')
+#window.tk.call('wm', 'iconphoto', window._w, img)
+
 
 canvas = Canvas(
     window,
@@ -43,30 +46,32 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
+canvas.create_text(
+    683.0,
+    288.0,
+    anchor="nw",
+    text="Parabéns",
+    fill="#000000",
+    font=("Aldrich Regular", 60 * -1)
+)
+
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
-    514.0,
-    381.0,
+    223.0,
+    84.0,
     image=image_image_2
 )
 
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
-image_3 = canvas.create_image(
-    223.0,
-    84.0,
-    image=image_image_3
-)
-
 canvas.create_text(
-    648.0,
-    352.0,
+    683.0,
+    404.0,
     anchor="nw",
-    text="APONTE O CÓDIGO DE BARRAS \nPARA O LEITOR",
+    text="SEU CADASTRO FOI\nCRIADO COM SUCESSO!",
     fill="#000000",
     font=("Aldrich Regular", 30 * -1)
 )
+
 
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
@@ -82,6 +87,14 @@ button_1.place(
     y=617.0,
     width=600.0,
     height=105.35211181640625
+)
+
+image_image_3 = PhotoImage(
+    file=relative_to_assets("image_3.png"))
+image_3 = canvas.create_image(
+    514.0,
+    381.0,
+    image=image_image_3
 )
 window.resizable(False, False)
 window.mainloop()

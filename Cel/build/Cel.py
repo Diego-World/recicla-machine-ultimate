@@ -137,7 +137,6 @@ class Cel:
         height=50.0
         )
 
-        KeyboardOneEntry.create_keyboard(self.window,entry_1)
 
         self.canvas.create_rectangle(
             549.0,
@@ -146,6 +145,8 @@ class Cel:
             330.0,
             fill="#000000",
             outline="")
+
+        KeyboardOneEntry.create_keyboard(self.window,entry_1)
 
         self.window.resizable(False, False)
         self.window.mainloop()

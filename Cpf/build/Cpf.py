@@ -151,4 +151,5 @@ class Cpf:
             fill="#000000",
             outline="")
 
+        self.window.resizable(False, False)
         self.window.mainloop()

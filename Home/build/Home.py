@@ -1,5 +1,5 @@
 from pathlib import Path
-from tkinter import Tk, Canvas, Button, PhotoImage
+from tkinter import Tk, Canvas, Button, PhotoImage, Frame
 from tkVideoPlayer import TkinterVideo
 from Acess.build import Acess
 
@@ -14,6 +14,13 @@ class Home:
 
         OUTPUT_PATH = Path(__file__).parent
         ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Apollo\Desktop\UltimateRecicla\Home\build\assets\frame0")
+
+        # self.main_frame = Frame(self.window)
+        # self.main_frame.configure(width=1366, height=768)
+        # self.main_frame.pack(fill="both", expand=True)
+        #
+        # def open_new_window():
+        #     self.acess = Acess.Acess(self.main_frame)
 
         def open_new_window():
             self.window.destroy()
